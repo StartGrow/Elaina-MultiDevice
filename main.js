@@ -40,14 +40,20 @@ import readline from 'readline'
 import { format } from 'util'
 import pino from 'pino'
 import ws from 'ws'
-import {
-    useMultiFileAuthState,
-    DisconnectReason,
-    fetchLatestBaileysVersion, 
-    makeInMemoryStore, 
-    makeCacheableSignalKeyStore, 
-    PHONENUMBER_MCC
-    } from '@adiwajshing/baileys'
+const {
+  Browsers,
+  fetchLatestWaWebVersion,
+  fetchLatestBaileysVersion,
+  makeCacheableSignalKeyStore,
+  jidNormalizedUser,
+  proto,
+  PHONENUMBER_MCC,
+  delay,
+  DisconnectReason,
+  makeInMemoryStore,
+  useMultiFileAuthState,
+  MessageRetryMap
+} = (await import("@adiwajshing/baileys"))?.default;
 import { Low, JSONFile } from 'lowdb'
 import { makeWASocket, protoType, serialize } from './lib/simple.js'
 import cloudDBAdapter from './lib/cloudDBAdapter.js'
